@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
-Route::get('/test', function () {
-    return view('layout.form');
+Route::get('/', function () {
+    return view('layout.default');
 });
 Route::get('/test1', function () {
     return "HELLO";
@@ -25,3 +25,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('villages', 'VillageController');
+Route::get('/clients/list', 'ClientController@list')->name('clients.list');
+Route::resource('clients', 'ClientController');
+

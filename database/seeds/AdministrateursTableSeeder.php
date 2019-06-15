@@ -13,6 +13,5 @@ class AdministrateursTableSeeder extends Seeder
     {
         //
         factory(App\Administrateur::class,10)->create();
-
     }
 }
