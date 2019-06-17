@@ -6,9 +6,13 @@ use App\Client;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-
 class ClientController extends Controller
 {
+    public function list(Request $request)
+    {
+        $clients=Client::with('user')->get();
+        return Datatables::of($clients)->make(true);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,26 +20,25 @@ class ClientController extends Controller
      */
     public function index()
     {
-        
+        //
         return view('clients.index');
     }
-    
-public function list(Request $request)
-{
-    $clients=Client::with('user')->get();
-    return Datatables::of($clients)->make(true);
-}
-
-
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        // $this->validate(
+        //     $request, [
+        //         'village' => 'required|exists:villages,id',
+        //     ]);
+        $village_id=$request->input('village');
+        $village=\App\Village::find($village_id);
+        return view('clients.create',compact('village'));
     }
 
     /**
@@ -47,6 +50,17 @@ public function list(Request $request)
     public function store(Request $request)
     {
         //
+        $this->validate(
+            $request, [
+                'nom' => 'required|string|max:50',
+                'prenom' => 'required|string|max:50',
+                'email' => 'required|email|max:255|unique:users,email',
+                'password' => 'required|string|max:50',
+                'village' => 'required|exists:villages,id',
+            ]
+        );
+        return view('clients.index');
+        
     }
 
     /**
