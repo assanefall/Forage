@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Abonnement;
+use App\Compteur;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class AbonnementController extends Controller
+class CompteurController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,12 @@ class AbonnementController extends Controller
     public function index()
     {
         //
-        return view('abonnements.index');
+        return view('compteurs.index');
     }
     public function list(Request $request)
 {
-    $abonnements=Abonnement::with('abonnement')->get();
-    return Datatables::of($abonnements)->make(true);
+    $compteurs=Compteur::get();
+    return Datatables::of($compteurs)->make(true);
 }
 
 
@@ -33,6 +33,8 @@ class AbonnementController extends Controller
     public function create()
     {
         //
+        $compteurs=Compteur::get();
+        return view('compteurs.create',compact('compteur'));
     }
 
     /**
@@ -52,7 +54,7 @@ class AbonnementController extends Controller
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function show(Abonnement $abonnement)
+    public function show(compteur $compteurs)
     {
         //
     }
