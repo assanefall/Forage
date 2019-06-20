@@ -19,25 +19,31 @@
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="./user.html">
+      <a class="nav-link" href="{{route('administrateurs.index')}}">
         <i class="material-icons">person</i>
         <p>Administrateurs</p>
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="./user.html">
+      <a class="nav-link" href="{{route('comptables.index')}}">
         <i class="material-icons">person</i>
         <p>Comptables</p>
       </a>
     </li>
+    <!-- <li class="nav-item ">
+      <a class="nav-link" href="{{route('comptables.index')}}">
+        <i class="material-icons">person</i>
+        <p>Comptables</p>
+      </a>
+    </li> -->
     <li class="nav-item ">
-      <a class="nav-link" href="./tables.html">
+      <a class="nav-link" href="{{route('agents.index')}}">
         <i class="material-icons">content_paste</i>
         <p>Agents</p>
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="./typography.html">
+      <a class="nav-link" href="{{route('gestionnaires.index')}}">
         <i class="material-icons">library_books</i>
         <p>Gestionnaires</p>
       </a>
@@ -57,7 +63,20 @@
     <li class="nav-item ">
       <a class="nav-link" href="./notifications.html">
         <i class="material-icons">notifications</i>
+        <p>Consommations</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="./notifications.html">
+        <i class="material-icons">notifications</i>
         <p>Facturation</p>
+      </a>
+    </li>
+   
+    <li class="nav-item ">
+      <a class="nav-link" href="./notifications.html">
+        <i class="material-icons">notifications</i>
+        <p>Reglements</p>
       </a>
     </li>
    <!--  <li class="nav-item ">

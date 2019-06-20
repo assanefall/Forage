@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <h3 class="card-title">Enregistrement</h3>
-                <p class="card-category">Gestionnaires
+                <p class="card-category">Administrateurs
                     {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                     {{-- <a href="#" target="_blank">full documentation.</a> --}}
                 </p>
@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="row pt-5"></div>
                 
-                <form method="POST" action="{{route('gestionnaires.store')}}">
+                <form method="POST" action="{{route('administrateurs.store')}}">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="exampleInputMatricule">Matricule</label>
@@ -58,6 +58,17 @@
                         <small id="emailHelp" class="form-text text-muted">
                             @if ($errors->has('email'))
                             @foreach ($errors->get('email') as $message)
+                            <p class="text-danger">{{ $message }}</p>
+                            @endforeach
+                            @endif
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputlogin">Login</label>
+                        <input type="login" name="login" class="form-control" id="exampleInputlogin" aria-describedby="loginHelp" placeholder="Enter Login">
+                        <small id="loginHelp" class="form-text text-muted">
+                            @if ($errors->has('^login'))
+                            @foreach ($errors->get('login') as $message)
                             <p class="text-danger">{{ $message }}</p>
                             @endforeach
                             @endif

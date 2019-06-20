@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Compteur;
+use App\Comptable;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class CompteurController extends Controller
+class ComptableController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,19 +16,13 @@ class CompteurController extends Controller
     public function index()
     {
         //
-        return view('compteurs.index');
+        return view('comptables.index');
     }
     public function list(Request $request)
 {
-    $compteurs=Compteur::get();
-    return Datatables::of($compteurs)->make(true);
+    $comptables=Comptable::get()->load('user');
+    return Datatables::of($comptables)->make(true);
 }
-public function listfree()
-{
-    $compteurs=Compteur::doesntHave('abonnement')->get();
-    return DataTables::of($compteurs)->make(true);
-}
-
 
 
     /**
@@ -39,8 +33,8 @@ public function listfree()
     public function create()
     {
         //
-        $compteurs=Compteur::get();
-        return view('compteurs.create',compact('compteur'));
+        $comptables=Comptable::get();
+        return view('comptables.create',compact('comptable'));
     }
 
     /**
@@ -57,10 +51,10 @@ public function listfree()
     /**
      * Display the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\comptables  $comptables
      * @return \Illuminate\Http\Response
      */
-    public function show(compteur $compteurs)
+    public function show(comptables $comptables)
     {
         //
     }
@@ -68,10 +62,10 @@ public function listfree()
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\comptables  $comptables
      * @return \Illuminate\Http\Response
      */
-    public function edit(Abonnement $abonnement)
+    public function edit(comptables $comptables)
     {
         //
     }
@@ -80,10 +74,10 @@ public function listfree()
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\comptables  $comptables
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Abonnement $abonnement)
+    public function update(Request $request, comptables $comptables)
     {
         //
     }
@@ -91,10 +85,10 @@ public function listfree()
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\comptables  $comptables
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Abonnement $abonnement)
+    public function destroy(comptables $comptables)
     {
         //
     }

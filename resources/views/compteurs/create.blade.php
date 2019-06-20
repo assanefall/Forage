@@ -61,7 +61,7 @@
                         @endforeach
                         @endif
                     </div> -->
-                    <div class="form-check">
+                  <!--   <div class="form-check">
                         <label class="form-check-label">
                             <input class="form-check-input" type="checkbox" value="">
                             Option one is this
@@ -69,7 +69,7 @@
                                 <span class="check"></span>
                             </span>
                         </label>
-                    </div>
+                    </div> -->
                     
                     <button type="submit" class="btn btn-primary">Enregistrer</button>
                 </form>

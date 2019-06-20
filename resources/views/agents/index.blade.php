@@ -9,13 +9,13 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
-                  <p class="card-category"> Gestionnaires
-                      <a href="{{route('gestionnaires.create')}}"><div class="btn btn-warning">Nouveau Gestionnaire <i class="material-icons">add</i></div></a> 
+                  <p class="card-category"> Agents
+                      <a href="{{route('agents.create')}}"><div class="btn btn-warning">Nouveau Agent <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-gestionnaires">
+                    <table class="table" id="table-agents">
                       <thead class=" text-primary">
                        <!--  <th>
                           ID
@@ -57,12 +57,12 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-gestionnaires').DataTable( { 
+          $('#table-agents').DataTable( { 
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('gestionnaires.list')}}",
+            "ajax": "{{route('agents.list')}}",
             columns: [
-                   /*  { data: 'id', name: 'id' }, */
+                    /* { data: 'id', name: 'id' }, */
                     { data: 'matricule', name: 'matricule' }, 
                     { data: 'user.name', name: 'user.name' },
                     { data: 'user.firstname', name: 'user.firstname' },
@@ -74,8 +74,8 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('gestionnaires.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('gestionnaires.destroy',':id')!!}".replace(':id', data.id);
+                        url_e =  "{!! route('agents.edit',':id')!!}".replace(':id', data.id);
+                        url_d =  "{!! route('agents.destroy',':id')!!}".replace(':id', data.id);
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
                         '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
                         },

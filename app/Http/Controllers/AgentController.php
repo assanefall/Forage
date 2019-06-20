@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Compteur;
+use App\Agent;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class CompteurController extends Controller
+class AgentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,19 +16,13 @@ class CompteurController extends Controller
     public function index()
     {
         //
-        return view('compteurs.index');
+        return view('agents.index');
     }
     public function list(Request $request)
 {
-    $compteurs=Compteur::get();
-    return Datatables::of($compteurs)->make(true);
+    $agents=Agent::get()->load('user');
+    return Datatables::of($agents)->make(true);
 }
-public function listfree()
-{
-    $compteurs=Compteur::doesntHave('abonnement')->get();
-    return DataTables::of($compteurs)->make(true);
-}
-
 
 
     /**
@@ -39,8 +33,8 @@ public function listfree()
     public function create()
     {
         //
-        $compteurs=Compteur::get();
-        return view('compteurs.create',compact('compteur'));
+        $agents=Agent::get();
+        return view('agents.create',compact('agent'));
     }
 
     /**

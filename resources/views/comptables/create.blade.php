@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <h3 class="card-title">Enregistrement</h3>
-                <p class="card-category">Gestionnaires
+                <p class="card-category">Comptables
                     {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                     {{-- <a href="#" target="_blank">full documentation.</a> --}}
                 </p>
@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="row pt-5"></div>
                 
-                <form method="POST" action="{{route('gestionnaires.store')}}">
+                <form method="POST" action="{{route('comptables.store')}}">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="exampleInputMatricule">Matricule</label>
@@ -75,7 +75,7 @@
                         </small>
                     </div>
                    
-                  <!--   <div class="form-check">
+                   <!--  <div class="form-check">
                         <label class="form-check-label">
                             <input class="form-check-input" type="checkbox" value="">
                             Option one is this

@@ -9,29 +9,26 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
-                  <p class="card-category"> Gestionnaires
-                      <a href="{{route('gestionnaires.create')}}"><div class="btn btn-warning">Nouveau Gestionnaire <i class="material-icons">add</i></div></a> 
+                  <p class="card-category"> Selection du compteur pour le client
+                      {{-- <a href="{{route('abonnements.selectclient')}}"><div class="btn btn-warning">Selection du Client <i class="material-icons">add</i></div></a>  --}}
                   </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-gestionnaires">
+                    <table class="table" id="table-clients">
                       <thead class=" text-primary">
-                       <!--  <th>
+                        <th>
                           ID
-                        </th> -->
-                        <th>
-                          Matricule
                         </th>
                         <th>
-                            Prenom
+                          UUID
                         </th>
                         <th>
-                            Nom
+                            NSERIE
                         </th>
                         <th>
-                          Email
-                         </th>
+                          Date Creation
+                        </th>
                         <th>
                           Action
                           </th>
@@ -57,16 +54,15 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-gestionnaires').DataTable( { 
+          $('#table-clients').DataTable( { 
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('gestionnaires.list')}}",
+            "ajax": "{{route('compteurs.listfree')}}",
             columns: [
-                   /*  { data: 'id', name: 'id' }, */
-                    { data: 'matricule', name: 'matricule' }, 
-                    { data: 'user.name', name: 'user.name' },
-                    { data: 'user.firstname', name: 'user.firstname' },
-                    { data: 'user.email', name: 'user.email' }, 
+                    { data: 'id', name: 'id' },
+                    { data: 'uuid', name: 'uuid' },
+                    { data: 'numero_serie', name: 'numero_serie' },
+                    { data: 'created_at', name: 'created_at' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -74,11 +70,8 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('gestionnaires.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('gestionnaires.destroy',':id')!!}".replace(':id', data.id);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
-                        },
+                        url_e =  "{!! route('abonnements.create',['compteur'=>'id-cptr','client'=>'idc'])!!}".replace('id-cptr', data.id).replace('idc',{{$client->id}});
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>';                        },
                         "targets": 4
                         },
                     // {
