@@ -62,6 +62,11 @@ class ClientController extends Controller
         return view('clients.index');
         
     }
+    public function destroy(Client $client)
+    {
+        //
+        return $clients
+    }
 
     /**
      * Display the specified resource.
@@ -103,8 +108,5 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
-    {
-        //
-    }
+   
 }

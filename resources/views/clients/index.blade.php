@@ -49,6 +49,29 @@
           </div>
         </div>
       </div>
+        <!-- Modal-delete-client -->
+      <div class="modal" id="modal-delete-client" tabindex="-1" role="dialog">
+      <form method="post" action="" id="form-delete-client">
+      @csrf
+      @method('DELETE')
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Êtes-vous sûr de bien vouloir supprimer ce client</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>cliquez sur close pour annuler</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
       @endsection
 
       @push('scripts')
@@ -73,7 +96,7 @@
                         url_e =  "{!! route('clients.edit',':id')!!}".replace(':id', data.id);
                         url_d =  "{!! route('clients.destroy',':id')!!}".replace(':id', data.id);
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
+                        '<div class="btn btn-danger delete btn-delete-client"  data-href='+url_d+'><i class="material-icons">delete</i></div>';
                         },
                         "targets": 4
                         },
@@ -86,8 +109,17 @@
                     //     "targets": 1
                     // }
                 ],
-              
+
+
           });
+          
+          $('#table-clients').off('click', '.btn-delete-client').on('click', '.btn-delete-client', 
+          function(){
+            var href=$(this).data('href');
+            [$("form-delete-client").attr("action",href)];
+            $('#modal-delete-client').modal();
+          });
+  
       });
       </script>
 
