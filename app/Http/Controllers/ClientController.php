@@ -64,8 +64,12 @@ class ClientController extends Controller
     }
     public function destroy(Client $client)
     {
-        //
-        return $clients
+        
+        $message = $client->user->firstname.''.$client->user->name.'suppression réussie';
+        // return $client;
+        $client->delete();
+
+        return redirect()->route('clients.index')->with(compact('message'));
     }
 
     /**
@@ -74,7 +78,7 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Client $clients)
     {
         //
     }
@@ -85,7 +89,7 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Client $clients)
     {
         //
     }
@@ -97,7 +101,7 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Client $clients)
     {
         //
     }

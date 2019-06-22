@@ -13,7 +13,8 @@
             <div class="card-body">
                 <div class="row pt-5 pl-5">
                     <h4>
-                        Client: {{$client->user->name ?? 'Aucun client choisi'}}<br/>
+                        Client: {{$client->user->firstname ?? 'Aucun client choisi'}}
+                        {{$client->user->name ?? 'Aucun client choisi'}}<br/>
                         Compteur: {{$compteur->numero_serie ?? ''}}
                     </h4>
                 </div>

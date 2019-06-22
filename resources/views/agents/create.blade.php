@@ -64,6 +64,17 @@
                         </small>
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputlogin">Login</label>
+                        <input type="login" name="login" class="form-control" id="exampleInputlogin" aria-describedby="loginHelp" placeholder="Enter Login">
+                        <small id="loginHelp" class="form-text text-muted">
+                            @if ($errors->has('^login'))
+                            @foreach ($errors->get('login') as $message)
+                            <p class="text-danger">{{ $message }}</p>
+                            @endforeach
+                            @endif
+                        </small>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputPassword">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword" aria-describedby="passwordHelp" placeholder="Enter Password">
                         <small id="passwordHelp" class="form-text text-muted">

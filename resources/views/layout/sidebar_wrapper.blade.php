@@ -30,12 +30,7 @@
         <p>Comptables</p>
       </a>
     </li>
-    <!-- <li class="nav-item ">
-      <a class="nav-link" href="{{route('comptables.index')}}">
-        <i class="material-icons">person</i>
-        <p>Comptables</p>
-      </a>
-    </li> -->
+  
     <li class="nav-item ">
       <a class="nav-link" href="{{route('agents.index')}}">
         <i class="material-icons">content_paste</i>
@@ -46,6 +41,12 @@
       <a class="nav-link" href="{{route('gestionnaires.index')}}">
         <i class="material-icons">library_books</i>
         <p>Gestionnaires</p>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" href="{{route('consommations.index')}}">
+        <i class="material-icons">bubble_chart</i>
+        <p>Consommations</p>
       </a>
     </li>
     <li class="nav-item ">
@@ -60,12 +61,12 @@
         <p>Compteurs</p>
       </a>
     </li>
-    <li class="nav-item ">
-      <a class="nav-link" href="./notifications.html">
+   <!--  <li class="nav-item ">
+      <a class="nav-link" href="{{route('consommations.index')}}">
         <i class="material-icons">notifications</i>
         <p>Consommations</p>
       </a>
-    </li>
+    </li> -->
     <li class="nav-item ">
       <a class="nav-link" href="./notifications.html">
         <i class="material-icons">notifications</i>
