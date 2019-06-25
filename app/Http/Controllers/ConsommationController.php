@@ -29,11 +29,11 @@ class ConsommationController extends Controller
  public function list(Abonnement $abonnement=null)
 {
     if($abonnement==null){
-        $consommations=\App\Consommation::with(['agent','compteur.abonnement.client.user'])->get();
-        return DataTables::of($consommations)->make(true);
+        $consommation=\App\Consommation::with(['agent','compteur.abonnement.client.user'])->get();
+        return DataTables::of($consommation)->make(true);
     }else{
-        $consommations=$abonnement->compteur->consommations->load(['agent','compteur.abonnement.client.user']);
-        return DataTables::of($consommations)->make(true);
+        $consommation=$abonnement->compteur->consommation->load(['agent','compteur.abonnement.client.user']);
+        return DataTables::of($consommation)->make(true);
     }
 }
 public function selectclient()
@@ -84,7 +84,7 @@ public function selectcompteur(Request $request)
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function show(Consommation $consommations)
+    public function show(Consommation $consommation)
     {
         //
     }
@@ -107,7 +107,7 @@ public function selectcompteur(Request $request)
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Abonnement $abonnement)
+    public function update(Request $request, consommation $consommation)
     {
         //
     }
@@ -118,8 +118,12 @@ public function selectcompteur(Request $request)
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Abonnement $abonnement)
+    public function destroy(consommation $consommation)
     {
-        //
+        
+        $message = $consommation->compteur->abonnement->client->firstname.''.$consommation->compteur->abonnement->client->name. 'suppression réussie';
+        // return $consommation;
+        $consommation->delete();
+        return redirect()->route('consommations.index')->with(compact('message'));
     }
 }

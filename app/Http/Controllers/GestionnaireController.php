@@ -20,8 +20,8 @@ class GestionnaireController extends Controller
     }
     public function list(Request $request)
 {
-    $gestionnaires=Gestionnaire::get()->load('user');
-    return Datatables::of($gestionnaires)->make(true);
+    $gestionnaire=Gestionnaire::get()->load('user');
+    return Datatables::of($gestionnaire)->make(true);
 }
 
 
@@ -33,7 +33,7 @@ class GestionnaireController extends Controller
     public function create()
     {
         //
-        $gestionnaires=Gestionnaire::get();
+        $gestionnaire=Gestionnaire::get();
         return view('gestionnaires.create',compact('agent'));
     }
 
@@ -54,7 +54,7 @@ class GestionnaireController extends Controller
      * @param  \App\Gestionnaire  $gestionnaires
      * @return \Illuminate\Http\Response
      */
-    public function show(gestionnaire $gestionnaires)
+    public function show(gestionnaire $gestionnaire)
     {
         //
     }
@@ -65,7 +65,7 @@ class GestionnaireController extends Controller
      * @param  \App\Gestionnaire  $gestionnaires
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gestionnaire $gestionnaires)
+    public function edit(Gestionnaire $gestionnaire)
     {
         //
     }
@@ -77,7 +77,7 @@ class GestionnaireController extends Controller
      * @param  \App\Gestionnaire  $gestionnaires
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gestionnaire $gestionnaires)
+    public function update(Request $request, Gestionnaire $gestionnaire)
     {
         //
     }
@@ -88,8 +88,13 @@ class GestionnaireController extends Controller
      * @param  \App\Gestionnaire  $gestionnaires
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gestionnaire $gestionnaires)
+    public function destroy(Gestionnaire $gestionnaire)
     {
         //
+        $message = $gestionnaire->user->firstname.''.$gestionnaire->user->name. 'suppression réussie';
+        // return $gestionnaires;
+        $gestionnaire->delete();
+
+        return redirect()->route('gestionnaires.index')->with(compact('message'));
     }
 }

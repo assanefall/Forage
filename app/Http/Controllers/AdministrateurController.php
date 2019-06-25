@@ -20,8 +20,8 @@ class AdministrateurController extends Controller
     }
     public function list(Request $request)
 {
-    $administrateurs=Administrateur::get()->load('user');
-    return Datatables::of($administrateurs)->make(true);
+    $administrateur=Administrateur::get()->load('user');
+    return Datatables::of($administrateur)->make(true);
 }
 
 
@@ -33,7 +33,7 @@ class AdministrateurController extends Controller
     public function create()
     {
         //
-        $administrateurs=Administrateur::get();
+        $administrateur=Administrateur::get();
         return view('administrateurs.create',compact('administrateur'));
     }
 
@@ -51,10 +51,10 @@ class AdministrateurController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \AppAdministrateur $administrateurs
+     * @param  \AppAdministrateur $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function show(compteur $compteurs)
+    public function show(administrateur $administrateur)
     {
         //
     }
@@ -62,10 +62,10 @@ class AdministrateurController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \AppAdministrateur $administrateurs
+     * @param  \AppAdministrateur $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function edit(administrateurs $administrateurs)
+    public function edit(administrateur $administrateur)
     {
         //
     }
@@ -74,10 +74,10 @@ class AdministrateurController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \AppAdministrateur $administrateurs
+     * @param  \AppAdministrateur $administrateur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, administrateurs $administrateurs)
+    public function update(Request $request, administrateur $administrateur)
     {
         //
     }
@@ -88,8 +88,13 @@ class AdministrateurController extends Controller
      * @param  \AppAdministrateur $administrateurs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(administrateurs $administrateurs)
+    public function destroy(administrateur $administrateur)
     {
-        //
+        
+        $message = $administrateur->user->firstname.''.$administrateur->user->name. 'suppression réussie';
+        // return $administrateur;
+        $administrateur->delete();
+
+        return redirect()->route('administrateurs.index')->with(compact('message'));
     }
 }

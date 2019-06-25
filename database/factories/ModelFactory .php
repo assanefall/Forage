@@ -79,6 +79,8 @@ $factory->define(App\Consommation::class, function (Faker\Generator $faker) {
         'agents_id' => function () use($id_agent) {
              return $id_agent;
         },
+   
+        
     ];
 });
 
@@ -293,7 +295,9 @@ $factory->define(App\Compteur::class, function (Faker\Generator $faker) {
         'numero_serie' => "SENF-2019-".$faker->randomNumber($nbDigit=5,$strict=true),
         'administrateurs_id' => function () use($id_administrateur) {
              return $id_administrateur;
-        },
+      
+
+      },
     ];
 });
 

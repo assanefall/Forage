@@ -68,14 +68,14 @@
       </a>
     </li> -->
     <li class="nav-item ">
-      <a class="nav-link" href="./notifications.html">
+      <a class="nav-link" href="{{route('factures.index')}}">
         <i class="material-icons">notifications</i>
         <p>Facturation</p>
       </a>
     </li>
    
     <li class="nav-item ">
-      <a class="nav-link" href="./notifications.html">
+      <a class="nav-link" href="{{route('reglements.index')}}">
         <i class="material-icons">notifications</i>
         <p>Reglements</p>
       </a>

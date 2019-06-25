@@ -104,7 +104,7 @@
                         url_d =  "{!! route('clients.destroy',':id')!!}".replace(':id', data.id);
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
                         '<div class="btn btn-danger delete btn-delete-client"  data-href='+url_d+'><i class="material-icons">delete</i></div>'; 
-                       /* '<div class="btn btn-danger delete btn-delete-client" data-href='+url_d+'><i class="fas fa-times">&nbsp;Delete</i></div>'; */
+                      
                         },
                         "targets": 4
                         },

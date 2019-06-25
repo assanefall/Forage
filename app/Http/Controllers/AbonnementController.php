@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Abonnement;
+use App\Client;
 use Illuminate\Http\Request;
 use DataTables;
 class AbonnementController extends Controller
@@ -133,6 +134,11 @@ class AbonnementController extends Controller
      */
     public function destroy(Abonnement $abonnement)
     {
-        //
+        
+        $message = $abonnement->client->firstname.''.$abonnement->client->name. 'suppression réussie';
+        // return $abonnement;
+        $abonnement->delete();
+
+        return redirect()->route('abonnements.index')->with(compact('message'));
     }
 }

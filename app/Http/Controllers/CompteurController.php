@@ -39,8 +39,8 @@ public function listfree()
     public function create()
     {
         //
-        $compteurs=Compteur::get();
-        return view('compteurs.create',compact('compteur'));
+        $compteur=Compteur::get();
+        return view('compteurs.create',compact('compteurs'));
     }
 
     /**
@@ -57,7 +57,7 @@ public function listfree()
     /**
      * Display the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\compteur  $compteurs
      * @return \Illuminate\Http\Response
      */
     public function show(compteur $compteurs)
@@ -68,10 +68,10 @@ public function listfree()
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\compteur  $compteurs
      * @return \Illuminate\Http\Response
      */
-    public function edit(Abonnement $abonnement)
+    public function edit(compteur $compteurs)
     {
         //
     }
@@ -80,10 +80,10 @@ public function listfree()
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\compteur  $compteurs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Abonnement $abonnement)
+    public function update(Request $request, compteur $compteurs)
     {
         //
     }
@@ -91,11 +91,16 @@ public function listfree()
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\compteurs  $compteurs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Abonnement $abonnement)
+    public function destroy(compteur $compteurs)
     {
-        //
+        $message = $compteurs->user->firstname.''.$compteurs->user->name. 'suppression réussie';
+        // return $compteur;
+        $compteurs->delete();
+
+        return redirect()->route('compteurs.index')->with(compact('message'));
+      
     }
 }

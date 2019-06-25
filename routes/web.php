@@ -16,7 +16,7 @@
 }); */
 
 Route::get('/', function () {
-    return view('layout.default');
+    return view('accueil.index');
 });
 Route::get('/test1', function () {
     return "HELLO";
@@ -30,11 +30,17 @@ Route::get('/clients/selectvillage', function () {
  Route::get('/compteurs/create', function () {
     return view('compteurs.create');
  })->name('compteurs.create');
+ Route::get('/factures/create', function () {
+   return view('factures.create');
+})->name('factures.create');
 
  Route::get('/consommations/create', function () {
     return view('consommations.create');
  })->name('consommations.create');
 
+ Route::get('/reglements/create', function () {
+   return view('reglements.create');
+})->name('reglements.create');
 Route::get('/abonnements/selectcompteur', 'AbonnementController@selectcompteur')->name('abonnements.selectcompteur');
 Route::get('/abonnements/selectclient', 'AbonnementController@selectclient')->name('abonnements.selectclient');
 
@@ -66,6 +72,27 @@ Route::resource('administrateurs', 'AdministrateurController');
 Route::get('/consommations/list/{abonnement?}','ConsommationController@list')->name('consommations.list');
 Route::resource('consommations', 'ConsommationController');
 Route::resource('clients', 'ClientController');
+Route::get('/factures/list/','FactureController@list')->name('factures.list');
+Route::resource('factures', 'FactureController');
+Route::get('/reglements/list/','ReglementController@list')->name('reglements.list');
+Route::resource('reglements', 'ReglementController');
+
+Route::get('loginfor/{rolename?}',function($rolename=null){
+   if(!isset($rolename)){
+       return view('auth.loginfor');
+   }else{
+       $role=App\Role::where('name',$rolename)->first();
+       if($role){
+           $user=$role->users()->first();
+           Auth::login($user,true);
+           return redirect()->route('home');
+       
+   
+return redirect()->route('login');
+})->name('loginfor');
+
+
+
 
 /* use Carbon\Carbon;
 

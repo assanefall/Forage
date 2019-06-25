@@ -65,7 +65,7 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         
-        $message = $client->user->firstname.''.$client->user->name.'suppression réussie';
+        $message = $client->user->firstname.''.$client->user->name. 'suppression réussie';
         // return $client;
         $client->delete();
 

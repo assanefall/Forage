@@ -90,4 +90,12 @@ class User extends Eloquent
 	{
 		return $this->hasOne(\App\Gestionnaire::class, 'users_id');
 	}
+	public function hasRole($rolename){
+
+	return $this->role->name ==$rolename;
+	}
+	public function hasAnyRoles($roles){
+
+		return in-array($this->role->name , $roles);
+		}
 }

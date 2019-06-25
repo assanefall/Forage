@@ -20,8 +20,8 @@ class ComptableController extends Controller
     }
     public function list(Request $request)
 {
-    $comptables=Comptable::get()->load('user');
-    return Datatables::of($comptables)->make(true);
+    $comptable=Comptable::get()->load('user');
+    return Datatables::of($comptable)->make(true);
 }
 
 
@@ -33,7 +33,7 @@ class ComptableController extends Controller
     public function create()
     {
         //
-        $comptables=Comptable::get();
+        $comptable=Comptable::get();
         return view('comptables.create',compact('comptable'));
     }
 
@@ -51,10 +51,10 @@ class ComptableController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\comptables  $comptables
+     * @param  \App\comptable  $comptable
      * @return \Illuminate\Http\Response
      */
-    public function show(comptables $comptables)
+    public function show(comptable $comptable)
     {
         //
     }
@@ -62,10 +62,10 @@ class ComptableController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\comptables  $comptables
+     * @param  \App\comptable  $comptable
      * @return \Illuminate\Http\Response
      */
-    public function edit(comptables $comptables)
+    public function edit(comptable $comptable)
     {
         //
     }
@@ -74,10 +74,10 @@ class ComptableController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\comptables  $comptables
+     * @param  \App\comptable  $comptable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, comptables $comptables)
+    public function update(Request $request, comptable $comptable)
     {
         //
     }
@@ -85,11 +85,15 @@ class ComptableController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\comptables  $comptables
+     * @param  \App\comptable  $comptable
      * @return \Illuminate\Http\Response
      */
-    public function destroy(comptables $comptables)
+    public function destroy(comptable $comptable)
     {
-        //
+        
+        $message = $comptable->user->firstname.''.$comptable->user->name. 'suppression réussie';
+        // return $comptable;
+        $comptable->delete();
+        return redirect()->route('comptables.index')->with(compact('message'));
     }
 }

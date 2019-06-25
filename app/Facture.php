@@ -47,17 +47,29 @@ class Facture extends Eloquent
 		'date_limite',
 		'details',
 		'montant',
+		'valeur_totale_consommee',
 		'debut_consommation',
 		'fin_consommation'
 	];
+	 protected $appends = ['user'];
+	
 
-	public function consommations()
+	public function consommation()
 	{
 		return $this->hasMany(\App\Consommation::class, 'factures_id');
 	}
 
-	public function reglements()
+	public function reglement()
 	{
-		return $this->hasMany(\App\Reglement::class, 'factures_id');
+		return $this->hasOne(\App\Reglement::class, 'factures_id');
 	}
+	public function client()
+	{
+		return $this->hasOne(\App\Client::class, 'factures_id');
+	}
+	 public function getUserAttribute(){
+
+		return $this->consommation->first()->compteur->abonnement->client->user;
+	
+	} 
 }

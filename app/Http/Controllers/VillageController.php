@@ -51,7 +51,7 @@ class VillageController extends Controller
      * @param  \App\Village  $village
      * @return \Illuminate\Http\Response
      */
-    public function show(Village $village)
+    public function show(Village $villages)
     {
         //
     }
@@ -62,7 +62,7 @@ class VillageController extends Controller
      * @param  \App\Village  $village
      * @return \Illuminate\Http\Response
      */
-    public function edit(Village $village)
+    public function edit(Village $villages)
     {
         //
     }
@@ -74,7 +74,7 @@ class VillageController extends Controller
      * @param  \App\Village  $village
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Village $village)
+    public function update(Request $request, Village $villages)
     {
         //
     }
@@ -85,8 +85,13 @@ class VillageController extends Controller
      * @param  \App\Village  $village
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Village $village)
+    public function destroy(Village $villages)
     {
-        //
+      /*   //
+        $message = $villages->user->firstname.''.$villages->user->name. 'suppression réussie';
+        // return $villages;
+        $villages->delete();
+
+        return redirect()->route('villages.index')->with(compact('message')); */
     }
 }

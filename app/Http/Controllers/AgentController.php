@@ -20,8 +20,8 @@ class AgentController extends Controller
     }
     public function list(Request $request)
 {
-    $agents=Agent::get()->load('user');
-    return Datatables::of($agents)->make(true);
+    $agent=Agent::get()->load('user');
+    return Datatables::of($agent)->make(true);
 }
 
 
@@ -33,7 +33,7 @@ class AgentController extends Controller
     public function create()
     {
         //
-        $agents=Agent::get();
+        $agent=Agent::get();
         return view('agents.create',compact('agent'));
     }
 
@@ -51,10 +51,10 @@ class AgentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\Agent  $Agent
      * @return \Illuminate\Http\Response
      */
-    public function show(compteur $compteurs)
+    public function show(agent $agent)
     {
         //
     }
@@ -62,10 +62,10 @@ class AgentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\Agent  $Agent
      * @return \Illuminate\Http\Response
      */
-    public function edit(Abonnement $abonnement)
+    public function edit(agent $agent)
     {
         //
     }
@@ -74,10 +74,10 @@ class AgentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\Agent $Agent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Abonnement $abonnement)
+    public function update(Request $request, agent $agent)
     {
         //
     }
@@ -85,11 +85,16 @@ class AgentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\Agent  $Agent
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Abonnement $abonnement)
+    public function destroy(agent $agent)
     {
         //
+        $message = $agent->user->firstname.''.$agent->user->name. 'suppression réussie';
+        // return $agent;
+        $agent->delete();
+
+        return redirect()->route('agents.index')->with(compact('message'));
     }
 }
