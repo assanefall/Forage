@@ -10,7 +10,7 @@
 	<link href="{{asset('assets/img/favicon.ico')}}" rel="shortcut icon"/>
 
 	<!-- Google Font -->
-	<link type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	<link type="text/css"href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 
 
 	<!-- Stylesheets -->
@@ -173,7 +173,7 @@
 					<!-- Blog item -->
 					<div class="blog-item">
 						<div class="blog-thumb">
-							<img src="./img/blog/3.jpg" alt="">
+							<img src="{{asset('./img/blog/3.jpg')}}" alt="">
 						</div>
 						<div class="blog-text text-box text-white">
 							<div class="top-meta">11.11.18  /  in <a href="">Games</a></div>

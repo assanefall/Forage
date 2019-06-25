@@ -92,7 +92,7 @@ class User extends Eloquent
 	}
 	public function hasRole($rolename){
 
-	return $this->role->name ==$rolename;
+	return $this->role->name == $rolename;
 	}
 	public function hasAnyRoles($roles){
 

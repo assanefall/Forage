@@ -76,7 +76,7 @@ Route::get('/factures/list/','FactureController@list')->name('factures.list');
 Route::resource('factures', 'FactureController');
 Route::get('/reglements/list/','ReglementController@list')->name('reglements.list');
 Route::resource('reglements', 'ReglementController');
-
+/* gestion des roles */
 Route::get('loginfor/{rolename?}',function($rolename=null){
    if(!isset($rolename)){
        return view('auth.loginfor');
@@ -87,11 +87,13 @@ Route::get('loginfor/{rolename?}',function($rolename=null){
            Auth::login($user,true);
            return redirect()->route('home');
        
+          
+
+          }
+       }
    
 return redirect()->route('login');
 })->name('loginfor');
-
-
 
 
 /* use Carbon\Carbon;
