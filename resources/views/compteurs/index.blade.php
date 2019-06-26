@@ -20,13 +20,22 @@
              @endif
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-compteurs">
+                    <table class="table" id="table-compteur">
                       <thead class=" text-primary">
                         <th>
                         ID
                         </th>
                         <th>
                           Numero serie
+                        </th>
+                        <th>
+                          MAT Admin
+                        </th>
+                        <th>
+                          Prenom Admin
+                        </th>
+                        <th>
+                          Nom Admin
                         </th>
                         <th>
                           Action
@@ -76,13 +85,16 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-compteurs').DataTable( { 
+          $('#table-compteur').DataTable( { 
             "processing": true,
             "serverSide": true,
             "ajax": "{{route('compteurs.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
                     { data: 'numero_serie', name: 'numero_serie' },
+                    { data: 'administrateur.matricule', name: 'administrateur.matricule' },
+                    { data: 'administrateur.user.firstname', name: 'administrateur.user.firstname' },
+                    { data: 'administrateur.user.name', name: 'administrateur.user.name' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -96,7 +108,7 @@
                          '<div class="btn btn-danger delete btn-delete-compteur"  data-href='+url_d+'><i class="material-icons">delete</i></div>';
                       
                         },
-                        "targets": 2
+                        "targets": 5
                         },
                     // {
                     //     "data": null,
@@ -109,7 +121,7 @@
                 ],
               
           });
-          $('#table-compteurs').off('click', '.btn-delete-compteur').on('click', '.btn-delete-compteur', 
+          $('#table-compteur').off('click', '.btn-delete-compteur').on('click', '.btn-delete-compteur', 
           function(){
             var href=$(this).data('href');
             $("#form-delete-compteur").attr("action",href);

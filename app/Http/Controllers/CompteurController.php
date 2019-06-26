@@ -20,13 +20,13 @@ class CompteurController extends Controller
     }
     public function list(Request $request)
 {
-    $compteurs=Compteur::get();
+    $compteurs=Compteur::with('administrateur.user')->get();
     return Datatables::of($compteurs)->make(true);
 }
 public function listfree()
 {
     $compteurs=Compteur::doesntHave('abonnement')->get();
-    return DataTables::of($compteurs)->make(true);
+    return Datatables::of($compteurs)->make(true);
 }
 
 
@@ -39,7 +39,7 @@ public function listfree()
     public function create()
     {
         //
-        $compteur=Compteur::get();
+        $compteurs=Compteur::get();
         return view('compteurs.create',compact('compteurs'));
     }
 
@@ -96,7 +96,7 @@ public function listfree()
      */
     public function destroy(compteur $compteurs)
     {
-        $message = $compteurs->user->firstname.''.$compteurs->user->name. 'suppression réussie';
+        $message = $compteurs->administrateurs_id.''.$compteurs->numero_serie. 'suppression réussie';
         // return $compteur;
         $compteurs->delete();
 

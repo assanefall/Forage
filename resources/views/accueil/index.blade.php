@@ -253,8 +253,8 @@
 
 
 	<!-- Intro section -->
-	<section class="intro-video-section set-bg d-flex align-items-end " data-setbg="{{asset('assets/./img/promo-bg.jpg')}}">
-		{{-- <a href="https://www.youtube.com/watch?v=uFsGy5x_fyQ" class="video-play-btn video-popup"><img src="{{asset('assets/img/icons/solid.png')}}" alt="#"></a> --}}
+	<section class="intro-video-section set-bg d-flex align-items-end " data-setbg="{{asset('assets/img/promo-bg.jpg')}}">
+		<a href="https://www.youtube.com/watch?v=uFsGy5x_fyQ" class="video-play-btn video-popup"><img src="{{asset('assets/img/icons/solid-right-arrow.png')}}" alt="#"></a>
 		<div class="container">
 			<div class="video-text">
 				<h2>Promo video of the game</h2>

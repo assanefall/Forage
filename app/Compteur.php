@@ -50,7 +50,7 @@ class Compteur extends Eloquent
 		return $this->hasOne(\App\Abonnement::class, 'compteurs_id');
 	}
 
-	public function consommation()
+	public function consommations()
 	{
 		return $this->hasMany(\App\Consommation::class, 'compteurs_id');
 	
@@ -62,5 +62,28 @@ class Compteur extends Eloquent
 	public function user()
 	{
 		return $this->belongsTo(\App\User::class, 'users_id');
+	}
+	public function getNewConsommationsAttribute()
+	{
+		return $this->consommations->where('facture','=',null);
+	}
+	public function generateFacture()
+	{
+		$nouvelles_conso= $this->getNewConsommationsAttribute();
+		if ($nouvelles_conso->count() >0){
+			/* creer une facture */
+			$facture=new \App\Facture;
+			$facture->details="generee auto..";
+			$facture->save();$valeur= 0;
+			foreach ($nouvelles_conso as $conso){
+				$valeur+=$conso->valeur;
+			}
+			$facture->valeur_totale_consommee-$valeur;
+			$facture->montant= $valeur*3;
+			$facture->save();
+			$facture->consommations()->saveMany($nouvelles_conso);
+			return $facture;
+		}
+		return null;
 	}
 }
