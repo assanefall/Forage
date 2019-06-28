@@ -18,10 +18,11 @@
 Route::get('/', function () {
     return view('accueil.index');
 });
-Route::get('/test1', function () {
+/* Route::get('/test1', function () {
     return "HELLO";
-});
+}); */
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/clients/selectvillage', function () {
     return view('clients.selectvillage');

@@ -117,7 +117,16 @@
                     //     "targets": 1
                     // }
                 ],
-
+                dom: 'lBfrtip',
+           buttons: [
+           'copy', 'csv', 'excel', {
+               extend: 'pdfHtml5',
+               exportOptions: {
+                   columns: [ 0, 1, 2,5]
+               }
+           },, 'print','columnsToggle'
+           ],
+           "lengthMenu": [ [10, 25, 50,1000, -1], [10, 25, 50,1000, "All"] ],
 
           });
           

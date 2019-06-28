@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>EndGam - Gaming Magazine Template</title>
+	<title>SENFORAGE</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="EndGam Gaming Magazine Template">
 	<meta name="keywords" content="endGam,gGaming, magazine, html">
@@ -55,18 +55,19 @@
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
-						<a href="">Login</a> / <a href="">Register</a>
+						{{-- <a href="{{route('auth.login')}}"><div class="btn btn-warning">Se connecter 
+						<a href="{{asset('assets/inscription.blade.php')}}">S'inscrire</a> --}}
 					</div>
 					<!-- Menu -->
 					<ul class="main-menu primary-menu">
-						<li><a href="home.html">Home</a></li>
-						<li><a href="games.html">Games</a>
-							<ul class="sub-menu">
+						<li><a href="home.html">Acceuil</a></li>
+						<li><a href="games.html">Presentation</a>
+						{{-- 	<ul class="sub-menu">
 								<li><a href="game-single.html">Game Singel</a></li>
-							</ul>
+							</ul> --}}
 						</li>
-						<li><a href="review.html">Reviews</a></li>
-						<li><a href="blog.html">News</a></li>
+						<li><a href="review.html">Services</a></li>
+						{{-- <li><a href="blog.html">News</a></li> --}}
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
 				</nav>
@@ -81,16 +82,40 @@
 		<div class="hero-slider owl-carousel">
 			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="{{asset('assets/img/slider-bg-1.jpg')}}">
 				<div class="container">
-					<h2>Game on!</h2>
-					<p>Fusce erat dui, venenatis et erat in, vulputate dignissim lacus. Donec vitae tempus dolor,<br>sit amet elementum lorem. Ut cursus tempor turpis.</p>
-					<a href="#" class="site-btn">Read More  <img src="{{asset('assets/img/icons/double-arrow.png')}}" alt="#"/></a>
+					<h2>Bienvenue dans SENFORAGE</h2>
+					<p>Fort d’une expérience de presque 5 ans dans le forage, la société SENFORAGE possède toutes les qualités techniques, matérielles et humaines pour mener 
+						à bien les chantiers qu’elle entreprend.<br><br>
+
+						Avec plusieurs ateliers de forage, capables d’atteindre 1500m de profondeur et 1.5m de diamètre, des gabarits de machine adaptés à chaque problématique 
+						d’accès, un parc de plus de 20 pompes,des équipements spécifiques pour la régénération d’ouvrages, nos équipes de professionnels interviennent dans tout
+						le Sénégal sur les chantiers les plus complexes.<br><br>
+
+						Chaque équipe de forage est spécialisée, habilitée et affectée à un domaine de compétences qui lui est propre : l’eau potable, thermale, minérale, 
+						industrielle, particulier, agriculteur, fondation et géothermie.<br><br>
+							
+						SENFORAGE, c’est aussi une solution pour la pose d’une pompe à chaleur clef en main. Nous sommes en effet capables de vous fournir une solution géothermique
+					    comprenant la réalisation des forages, l’installation de l’échangeur, de la pompe à chaleur et le branchement sur votre réseau.
+					</p>
+					{{-- <a href="#" class="site-btn">Read More  <img src="{{asset('assets/img/icons/double-arrow.png')}}" alt="#"/></a> --}}
 				</div>
 			</div>
-			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="{{asset('assets/img/slider-bg-2.jpg')}}">
+			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="{{asset('assets/img/promo-bg.jpg')}}">
 				<div class="container">
-					<h2>Game on!</h2>
-					<p>Fusce erat dui, venenatis et erat in, vulputate dignissim lacus. Donec vitae tempus dolor,<br>sit amet elementum lorem. Ut cursus tempor turpis.</p>
-					<a href="#" class="site-btn">Read More  <img src="{{asset('assets/img/icons/double-arrow.png')}}" alt="#"/></a>
+					<h2>Bienvenue dans SENFORAGE</h2>
+					<p>Fort d’une expérience de presque 5 ans dans le forage, la société SENFORAGE possède toutes les qualités techniques, matérielles et humaines pour mener 
+							à bien les chantiers qu’elle entreprend.<br><br>
+	
+							Avec plusieurs ateliers de forage, capables d’atteindre 1500m de profondeur et 1.5m de diamètre, des gabarits de machine adaptés à chaque problématique 
+							d’accès, un parc de plus de 20 pompes,des équipements spécifiques pour la régénération d’ouvrages, nos équipes de professionnels interviennent dans tout
+							le Sénégal sur les chantiers les plus complexes.<br><br>
+	
+							Chaque équipe de forage est spécialisée, habilitée et affectée à un domaine de compétences qui lui est propre : l’eau potable, thermale, minérale, 
+							industrielle, particulier, agriculteur, fondation et géothermie.<br><br>
+								
+							SENFORAGE, c’est aussi une solution pour la pose d’une pompe à chaleur clef en main. Nous sommes en effet capables de vous fournir une solution géothermique
+							comprenant la réalisation des forages, l’installation de l’échangeur, de la pompe à chaleur et le branchement sur votre réseau.
+						</p>
+					{{-- <a href="#" class="site-btn">Read More  <img src="{{asset('assets/img/icons/double-arrow.png')}}" alt="#"/></a> --}}
 				</div>
 			</div>
 		</div>
@@ -99,7 +124,7 @@
 
 
 	<!-- Intro section -->
-	<section class="intro-section">
+	{{-- <section class="intro-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
@@ -248,12 +273,12 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- Blog section end -->
 
 
 	<!-- Intro section -->
-	<section class="intro-video-section set-bg d-flex align-items-end " data-setbg="{{asset('assets/img/promo-bg.jpg')}}">
+	{{-- <section class="intro-video-section set-bg d-flex align-items-end " data-setbg="{{asset('assets/img/promo-bg.jpg')}}">
 		<a href="https://www.youtube.com/watch?v=uFsGy5x_fyQ" class="video-play-btn video-popup"><img src="{{asset('assets/img/icons/solid-right-arrow.png')}}" alt="#"></a>
 		<div class="container">
 			<div class="video-text">
@@ -261,12 +286,12 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- Intro section end -->
 
 
 	<!-- Featured section -->
-	<section class="featured-section">
+	{{-- <section class="featured-section">
 		<div class="featured-bg set-bg" data-setbg="{{asset('assets/img/featured-bg.jpg')}}"></div>
 		<div class="featured-box">
 			<div class="text-box">
@@ -276,7 +301,7 @@
 				<a href="#" class="read-more">Read More  <img src="{{asset('assets/img/icons/double-arrow.png')}}" alt="#"/></a>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- Featured section end-->
 
 
@@ -298,19 +323,19 @@
 	<footer class="footer-section">
 		<div class="container">
 			<div class="footer-left-pic">
-				<img src="{{asset('assets/img/footer-left-pic.png')}}" alt="">
+				<img src="{{asset('assets/img/footer-left.jpg')}}" alt="">
 			</div>
 			<div class="footer-right-pic">
-				<img src="{{asset('assets/img/footer-right-pic.png')}}" alt="">
+				<img src="{{asset('assets/img/footer-right.jpg')}}" alt="">
 			</div>
 			<a href="#" class="footer-logo">
 				<img src="{{asset('assets/./img/logo.png')}}" alt="">
 			</a>
 			<ul class="main-menu footer-menu">
-				<li><a href="">Home</a></li>
-				<li><a href="">Games</a></li>
-				<li><a href="">Reviews</a></li>
-				<li><a href="">News</a></li>
+				<li><a href="">Acceuil</a></li>
+				<li><a href="">Presentation</a></li>
+				<li><a href="">Services</a></li>
+				{{-- <li><a href="">News</a></li> --}}
 				<li><a href="">Contact</a></li>
 			</ul>
 			<div class="footer-social d-flex justify-content-center">
@@ -320,7 +345,7 @@
 				<a href="#"><i class="fa fa-dribbble"></i></a>
 				<a href="#"><i class="fa fa-behance"></i></a>
 			</div>
-			<div class="copyright"><a href="">Colorlib</a> 2018 @ All rights reserved</div>
+			{{-- <div class="copyright"><a href="">Colorlib</a> 2018 @ All rights reserved</div> --}}
 		</div>
 	</footer>
 	<!-- Footer section end -->
