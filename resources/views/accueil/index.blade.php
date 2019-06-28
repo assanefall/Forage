@@ -55,8 +55,8 @@
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
-						{{-- <a href="{{route('auth.login')}}"><div class="btn btn-warning">Se connecter 
-						<a href="{{asset('assets/inscription.blade.php')}}">S'inscrire</a> --}}
+					<a href="{{route('login')}}">Login</a> / <a href="{{route('register')}}">Register</a>
+					
 					</div>
 					<!-- Menu -->
 					<ul class="main-menu primary-menu">
@@ -82,7 +82,7 @@
 		<div class="hero-slider owl-carousel">
 			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="{{asset('assets/img/slider-bg-1.jpg')}}">
 				<div class="container">
-					<h2>Bienvenue dans SENFORAGE</h2>
+					<h2>BIENVENUE DANS SENFORAGE</h2>
 					<p>Fort d’une expérience de presque 5 ans dans le forage, la société SENFORAGE possède toutes les qualités techniques, matérielles et humaines pour mener 
 						à bien les chantiers qu’elle entreprend.<br><br>
 

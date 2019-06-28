@@ -44,6 +44,12 @@
                          <th>
                             Fin cons
                              </th>
+                             <th>
+                                Prenom Client
+                                 </th>
+                                 <th>
+                                    Nom Client
+                                     </th>
                         <th>
                           Action
                           </th>
@@ -104,6 +110,9 @@
                     { data: 'reglement.type.name', name: 'reglement.type.name' },
                     { data: 'debut_consommation', name: 'debut_consommation' },
                     { data: 'fin_consommation', name: 'fin_consommation' },
+                    { data: 'user.firstname', name: 'user.firstname' },
+                    { data: 'user.name', name: 'user.name' },
+
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -116,16 +125,22 @@
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
                         '<div class="btn btn-danger delete btn-delete-facture"  data-href='+url_d+'><i class="material-icons">delete</i></div>'; 
                         },
-                        "targets": 6
+                        "targets": 8
                         
                         },
                 
                 ],
                 dom: 'lBfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ],
-        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ]
+           buttons: [
+           'copy', 'csv', 'excel', {
+               extend: 'pdfHtml5',
+               exportOptions: {
+                   columns: [ 0, 1, 2,5]
+               }
+           },, 'print','columnsToggle'
+           ],
+           "lengthMenu": [ [10, 25, 50,1000, -1], [10, 25, 50,1000, "All"] ],
+
               
           });
 
