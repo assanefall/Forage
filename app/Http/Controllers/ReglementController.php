@@ -31,13 +31,8 @@ class ReglementController extends Controller
         public function create(Request $request)
         {
             //
-            // $this->validate(
-            //     $request, [
-            //         'village' => 'required|exists:villages,id',
-            //     ]);
-            /* $village_id=$request->input('village');
-            $village=\App\Village::find($village_id);
-            return view('gestionnaires.create',compact('gestionnaire')); */
+            return view('reglements.create');
+           
         }
     
         /**

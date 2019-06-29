@@ -37,11 +37,11 @@ Route::get('/clients/selectvillage', function () {
 
  Route::get('/consommations/create', function () {
     return view('consommations.create');
+   
  })->name('consommations.create');
 
- Route::get('/reglements/create', function () {
-   return view('reglements.create');
-})->name('reglements.create');
+ Route::get('/reglements/create/{facture?}', 'ReglementController@create')->name('reglements.create');
+
 Route::get('/abonnements/selectcompteur', 'AbonnementController@selectcompteur')->name('abonnements.selectcompteur');
 Route::get('/abonnements/selectclient', 'AbonnementController@selectclient')->name('abonnements.selectclient');
 
@@ -76,7 +76,11 @@ Route::resource('clients', 'ClientController');
 Route::get('/factures/list/','FactureController@list')->name('factures.list');
 Route::resource('factures', 'FactureController');
 Route::get('/reglements/list/','ReglementController@list')->name('reglements.list');
-Route::resource('reglements', 'ReglementController');
+//Route::resource('reglements', 'ReglementController'); 
+Route::resource('reglements', 'ReglementController')->except('create');
+
+Route::get('/users/list/','UserController@list')->name('users.list');
+Route::resource('users', 'UserController');
 /* gestion des roles */
 Route::get('loginfor/{rolename?}',function($rolename=null){
    if(!isset($rolename)){

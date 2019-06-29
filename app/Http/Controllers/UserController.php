@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Facture;
-use App\Reglement;
-/* use App\Client; */
+use App\Role;
+use App\User;
 
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class FactureController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,38 +18,38 @@ class FactureController extends Controller
     public function index()
     {
         //
-        return view('factures.index');
+        return view('users.index');
     }
   public function list(Request $request)
     {
-        $facture=Facture::with('reglement.type')->get();
-        return Datatables::of($facture)->make(true);
+        $user=User::get()->load('role');
+        return Datatables::of($user)->make(true);
     }  
 
-public function create(Facture $facture)
+public function create()
 {
     //
-    return $facture;
-   
+    $user=User::get();
+    return view('users.create',compact('user'));
 }
  /* public function list(Abonnement $abonnement=null)
 {
     if($abonnement==null){
-        $consommation=\App\Consommation::with(['agent','facture.abonnement.client.user'])->get();
+        $consommation=\App\Consommation::with(['agent','user.abonnement.client.user'])->get();
         return DataTables::of($consommation)->make(true);
     }else{
-        $consommation=$abonnement->facture->consommation->load(['agent','facture.abonnement.client.user']);
+        $consommation=$abonnement->user->consommation->load(['agent','user.abonnement.client.user']);
         return DataTables::of($consommation)->make(true);
     }
 }
 public function selectclient()
 {
-    return view('facture$facture.selectclient');
+    return view('user$user.selectclient');
 }
-public function selectfacture(Request $request)
+public function selectuser(Request $request)
 {
     $client=\App\Client::find($request->input('client'));
-    return view('facture$facture.selectfacture',compact('client'));
+    return view('user$user.selectuser',compact('client'));
 } */
 
 
@@ -69,9 +68,9 @@ public function selectfacture(Request $request)
     {
         //
         $client=\App\Client::find($request->input('client'));
-        $facture=\App\facture::find($request->input('facture'));
+        $user=\App\user::find($request->input('user'));
 
-        return view('facture$facture.create',compact(['client','facture']));
+        return view('user$user.create',compact(['client','user']));
     } */
 
     /**
@@ -91,12 +90,9 @@ public function selectfacture(Request $request)
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function show(Facture $facture)
+    public function show(User $user)
     {
         //
-        return view('factures.show',compact('facture'));
-        /* return view('layout.user',compact('facture')); */
-        /* return $facture; */
     }
 
     /**
@@ -105,7 +101,7 @@ public function selectfacture(Request $request)
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Abonnement $abonnement)
+    public function edit(User $user)
     {
         //
     }
@@ -117,7 +113,7 @@ public function selectfacture(Request $request)
      * @param  \App\Abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, consommation $consommation)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -134,6 +130,6 @@ public function selectfacture(Request $request)
         $message = $consommation->client->user->firstname.''.$consommation->client->user->name. 'suppression réussie';
         // return $consommation;
         $consommation->delete();
-        return redirect()->route('facture$facture.index')->with(compact('message'));
+        return redirect()->route('user$user.index')->with(compact('message'));
     } */
 }

@@ -120,10 +120,10 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('factures.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('factures.destroy',':id')!!}".replace(':id', data.id);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<div class="btn btn-danger delete btn-delete-facture"  data-href='+url_d+'><i class="material-icons">delete</i></div>'; 
+                        url_e =  "{!! route('factures.show',':id')!!}".replace(':id', data.id);
+                        url_d =  "{!! route('reglements.create',':id')!!}".replace(':id', data.id);
+                        return '<a href='+url_e+'  class=" btn btn-primary " title="Afficher Reglement"><i class="material-icons">edit</i></a>'+
+                        '<a href='+url_d+' class=" btn btn-danger title="Effectuer Reglement"><i class="material-icons">edit</i></a>'; 
                         },
                         "targets": 8
                         

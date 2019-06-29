@@ -7,6 +7,12 @@
       </a>
     </li>
     <li class="nav-item ">
+      <a class="nav-link" href="{{route('users.index')}}">
+          <i class="material-icons">person</i>
+          <p>Utilisateurs</p>
+        </a>
+      </li>
+    <li class="nav-item ">
     <a class="nav-link" href="{{route('villages.index')}}">
         <i class="material-icons">person</i>
         <p>Villages</p>

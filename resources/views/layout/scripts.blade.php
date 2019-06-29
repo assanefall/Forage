@@ -217,8 +217,8 @@
       md.initDashboardPageCharts();
 
     });
+   
     <script type="text/javascript" src="{{asset('assets/DataTables/datatables.min.js')}}"></script>
-    
     
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>

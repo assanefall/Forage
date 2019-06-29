@@ -13,7 +13,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
                   <p class="card-category"> Reglements
-                      <a href="{{route('reglements.create')}}"><div class="btn btn-warning">Nouveau Reglement <i class="material-icons">add</i></div></a> 
+                       <a href="{{route('reglements.create')}}"><div class="btn btn-warning">Nouveau Reglement <i class="material-icons">add</i></div></a>
                   </p>
                 </div>
                 <div class="card-body">
@@ -101,7 +101,7 @@
                     { data: 'montant', name: 'montant' },
                     { data: 'type.name', name: 'type.name' },
                     { data: 'facture.id', name: 'facture.id' },
-                    { data: 'comptable.matricule', name: 'comptable.matricule' },
+                    { data: 'comptable.matricule', name: 'comptable.matricule' }, 
                     { data: null ,orderable: false, searchable: false}
 
                 ],
