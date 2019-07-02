@@ -123,7 +123,7 @@
                         url_e =  "{!! route('factures.show',':id')!!}".replace(':id', data.id);
                         url_d =  "{!! route('reglements.create',':id')!!}".replace(':id', data.id);
                         return '<a href='+url_e+'  class=" btn btn-primary " title="Afficher Reglement"><i class="material-icons">edit</i></a>'+
-                        '<a href='+url_d+' class=" btn btn-danger title="Effectuer Reglement"><i class="material-icons">edit</i></a>'; 
+                        '<a href='+url_d+' class=" btn btn-danger" title="Effectuer Reglement"><i class="material-icons">edit</i></a>'; 
                         },
                         "targets": 8
                         

@@ -51,7 +51,7 @@
 			<div class="header-bar-warp d-flex">
 				<!-- site logo -->
 				<a href="home.html" class="site-logo">
-					<img src="{{asset('assets/./img/logo.png')}}" alt="">
+					<img src="{{asset('assets/./img/logo.jpg')}}" alt="">
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
@@ -81,7 +81,7 @@
 	<section class="hero-section overflow-hidden">
 		<div class="hero-slider owl-carousel">
 			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="{{asset('assets/img/slider-bg-1.jpg')}}">
-				<div class="container">
+				<div class="container"><br>
 					<h2>BIENVENUE DANS SENFORAGE</h2>
 					<p>Fort d’une expérience de presque 5 ans dans le forage, la société SENFORAGE possède toutes les qualités techniques, matérielles et humaines pour mener 
 						à bien les chantiers qu’elle entreprend.<br><br>
@@ -329,7 +329,7 @@
 				<img src="{{asset('assets/img/footer-right.jpg')}}" alt="">
 			</div>
 			<a href="#" class="footer-logo">
-				<img src="{{asset('assets/./img/logo.png')}}" alt="">
+				<img src="{{asset('assets/./img/logo.jpg')}}" alt="">
 			</a>
 			<ul class="main-menu footer-menu">
 				<li><a href="">Acceuil</a></li>

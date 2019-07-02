@@ -16,24 +16,24 @@
 <div id="container">
 	<div id="header">
 		<div id="logo">
-            <h2>SENFORAGE</h2>
-			{{-- <img src="http://placehold.it/230x70&text=logo" alt=""> --}}
+            {{-- <h2>SENFORAGE</h2> --}}
+			 <img src="{{asset('assets/./img/logos.jpg')}}" alt=""> 
 		</div>
 		<div id="reference">
 			<h3><strong>Facture</strong></h3>
 			<h4>Réf. : FA1703-00001</h4>
-			<p>Date facturation : 20/03/2017</p>
+			<p>Date facturation : 20/07/2019</p>
 		</div>
 	</div>
 	<div id="fromto">
 		<div id="from">
 			<p>
-				<strong>Your company</strong><br>
-				8 avenue des Champs Elysées <br>
-				75000 Paris <br><br>
-				Tél.: 01 00 00 00 00 <br>
-				Email: contact@website.com <br>
-				Web: www.website.com
+				<strong>SENFORAGE</strong><br>
+				Avenue Cheikh Anta Diop<br>
+				75000 Dakar <br><br>
+				Tél.: 33 851 98 01 <br>
+				Email: senforage@senforage.com <br>
+				Web: www.senforage.com
 			</p>
 		</div>
 		<div id="to">
