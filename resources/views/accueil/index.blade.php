@@ -51,7 +51,7 @@
 			<div class="header-bar-warp d-flex">
 				<!-- site logo -->
 				<a href="home.html" class="site-logo">
-					<img src="{{asset('assets/./img/logo.jpg')}}" alt="">
+					<img src="{{asset('assets/./img/logos.jpg')}}" alt="">
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
@@ -329,7 +329,7 @@
 				<img src="{{asset('assets/img/footer-right.jpg')}}" alt="">
 			</div>
 			<a href="#" class="footer-logo">
-				<img src="{{asset('assets/./img/logo.jpg')}}" alt="">
+				<img src="{{asset('assets/./img/logos.jpg')}}" alt="">
 			</a>
 			<ul class="main-menu footer-menu">
 				<li><a href="">Acceuil</a></li>
